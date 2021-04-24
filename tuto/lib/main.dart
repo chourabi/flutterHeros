@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tuto/comp/Todo.dart';
 import 'package:tuto/pages/Converter.dart';
 import 'package:tuto/pages/FeedsPage.dart';
+import 'package:tuto/pages/Gallery.dart';
 import 'package:tuto/pages/SignInPage.dart';
+import 'package:tuto/pages/TodoApp.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Converter(),
+      home: TodoApp(),
     );
   }
 }
