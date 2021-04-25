@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:tuto/comp/Todo.dart';
+import 'package:tuto/pages/BottomNavigation.dart';
 import 'package:tuto/pages/Converter.dart';
 import 'package:tuto/pages/FeedsPage.dart';
 import 'package:tuto/pages/Gallery.dart';
+import 'package:tuto/pages/PizzaPicker.dart';
 import 'package:tuto/pages/SignInPage.dart';
+import 'package:tuto/pages/SliverAppBarPage.dart';
+import 'package:tuto/pages/TabsApp.dart';
+import 'package:tuto/pages/TextReader.dart';
+import 'package:tuto/pages/ToastMessage.dart';
 import 'package:tuto/pages/TodoApp.dart';
 
 void main() {
@@ -18,10 +24,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: TodoApp(),
+      home: SliverAppBarPage(),
     );
   }
 }
