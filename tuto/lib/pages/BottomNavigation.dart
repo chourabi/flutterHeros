@@ -19,7 +19,7 @@ class _BottomNavState extends State<BottomNav> {
   int _index = 0;
 
 
- _showMyDialog(String title , String message) async {
+Future<void> _showMyDialog(String title , String message) async {
   return showDialog<void>(
     context: context,
     barrierDismissible: false, // user must tap button!
