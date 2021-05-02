@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/models/MovieListing.dart';
+import 'package:movies/services/Api.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MovieDetails extends StatefulWidget {
   final Movie movie;
@@ -56,6 +58,29 @@ class _MovieDetailsState extends State<MovieDetails> {
                 padding: EdgeInsets.all(10),
                 child: Text(widget.movie.descriptionFull,style: TextStyle( fontSize: 20 ),),
               ),
+              Container(
+                padding: EdgeInsets.all(10),
+                child: FlatButton(
+                  onPressed: () async {
+                        SharedPreferences prefs = await SharedPreferences.getInstance();
+                        List<String> favsIds= prefs.getStringList('favoris');
+                        print(favsIds);
+
+                        if (favsIds == null) {
+                          favsIds = new List<String>();
+                          favsIds.add(widget.movie.id.toString());
+                          prefs.setStringList('favoris',favsIds);
+                        }else{
+                          if ( favsIds.indexOf(widget.movie.id.toString()) == -1 ) {
+                            favsIds.add(widget.movie.id.toString());
+                            prefs.setStringList('favoris',favsIds);
+                          }
+                        }
+                  },
+                  child: Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center, children: [Icon(Icons.favorite),Text("Add to favorite")],),
+                ),
+              ),
+
               Container(
                 padding: EdgeInsets.all(10),
                 child: Text("Gendre",style: TextStyle( fontSize: 30 ),),
